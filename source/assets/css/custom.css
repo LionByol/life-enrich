@@ -1,0 +1,31 @@
+/* Theme Name: The Project - Responsive Website Template
+Author:HtmlCoder
+Author URI:http://www.htmlcoder.me
+Author e-mail:htmlcoder.me@gmail.com
+Version:1.1.0
+Created:December 2014
+License URI:http://support.wrapbootstrap.com/
+File Description: Place here your custom CSS styles
+*/
+
+#scroll-pane
+{
+    height: 300px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+#scroll-pane::-webkit-scrollbar{
+    width:10px;
+    background-color:#bfc3e1;
+} 
+#scroll-pane::-webkit-scrollbar-thumb{
+    background-color:#8088c3;
+
+}
+#scroll-pane::-webkit-scrollbar-thumb:hover{
+    background-color:#8088c3;
+
+}
+#scroll-pane::-webkit-scrollbar-thumb:active{
+    background-color:#8088c3;
+} 

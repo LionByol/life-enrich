@@ -1,0 +1,40 @@
+{% capture category %}
+    {% if post %}
+        {{ post.categories | category_links | size }}
+    {% else %}
+        {{ page.categories | category_links | size }}
+    {% endif %}
+{% endcapture %}
+{% unless category == '0' %}
+    <div class="block clearfix">
+        <h3 class="title">{{ lang.popular }} Tags</h3>
+        <div class="separator-2"></div>
+        <div class="tags-cloud">
+            <div class="tag">
+                {% if post %}
+                    {% assign cats = post.categories %}
+                    {% for cat in cats %}
+                        <div class="tag">
+                            {% unless cat == 'house tree person projective drawings'  %}
+                            <a href="/categories/{{ lang.lang }}/{{ cat }}/index.html">{{ cat }}</a>
+                            {% else %}
+                            <a href="/categories/{{ lang.lang }}/house-tree-person-projective-drawings/index.html">{{ cat }}</a>
+                            {% endunless %}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% assign cats = page.categories %}
+                    {% for cat in cats %}
+                        <div class="tag">
+                            {% unless cat == 'house tree person projective drawings'  %}
+                            <a href="/categories/{{ lang.lang }}/{{ cat }}/index.html">{{ cat }}</a>
+                            {% else %}
+                            <a href="/categories/{{ lang.lang }}/house-tree-person-projective-drawings/index.html">{{ cat }}</a>
+                            {% endunless %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endunless %}

@@ -1,0 +1,63 @@
+---
+layout: page
+lang: zhcn
+translation_id: 4d9f59d08e580006000ff7205d011127
+---
+<div class="main-container">
+    <div class="container">
+        <div class="row">
+            <div class="main col-md-8">
+                {% assign flag = 0 %}
+                {% assign tmp = 0 %}
+                <!-- timeline grid start -->
+                <!-- ================ -->
+                <div class="timeline clearfix">
+                    
+                    {% for post in site.posts %}
+                        {% capture post_num %}{{ post.categories | size }}{% endcapture %}
+                        {% unless post_num == '0' %}                            
+                            {% for cat in post.categories %}
+                                {% if post.lang == 'zhcn' and cat == 'house tree person projective drawings' %}
+                                    {% capture this_year %}{{ post.date | date: "%b %Y" }}{% endcapture %}
+                                    {% if this_year != tmp %}
+                                        <div class="timeline-date-label clearfix">{{ this_year }}</div>
+                                        {% assign tmp = this_year %}
+                                    {% endif %}
+                                    <!-- timeline grid item start -->
+                                    {% if flag == 0 %}
+                                        <div class="timeline-item">
+                                        {% assign flag = 1 %}
+                                    {% else %}
+                                        <div class="timeline-item pull-right">
+                                        {% assign flag = 0 %}
+                                    {% endif %}
+                                        <!-- blogpost start -->
+                                        <article class="blogpost shadow light-gray-bg bordered">
+                                            {% include archive_post.html %}
+                                        </article>
+                                        <!-- blogpost end -->
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endunless %}
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- sidebar start -->
+            <!-- ================ -->
+            <div class="col-md-4 col-lg-3 col-lg-offset-1"> 
+                {% unless page.sidebar == false %}
+                <div class="sidebar">
+                    {% if site.blog_index_asides.size %}
+                        {% include_array blog_index_asides %}
+                    {% else %}
+                        {% include_array blog_index_asides %}
+                    {% endif %}
+                </div>
+                {% endunless %}
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+</div>

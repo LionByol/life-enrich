@@ -1,0 +1,18 @@
+includes:
+ - category_feed.xml
+ - category_index.html
+
+config:
+  category_dir: "categories"
+  prefixes: 
+    title: "Category: "
+    meta_description: "Category: "
+  feed: 
+    enabled: false
+    count: 5
+  permalinks:
+
+category-pages:
+ - announcements-en 
+ - announcements-zhtw
+ - announcements-zhcn

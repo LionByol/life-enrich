@@ -1,0 +1,24 @@
+<div class="section default-bg clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="call-to-action text-center">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <h1 class="title">Don't Miss Out Our Offers</h1>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>
+                                {% if lang.lang == 'zhtw' %}
+                                    <a href="/online-learning/" class="btn btn-lg btn-gray-transparent btn-animated">{{ lang.online_learn }}<i class="pl-5 fa fa-angle-double-right"></i></a>
+                                {% else %}
+                                    <a href="/{{ lang.lang }}/online-learning/" class="btn btn-lg btn-gray-transparent btn-animated">{{ lang.online_learn }}<i class="pl-5 fa fa-angle-double-right"></i></a>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+{% capture category %}{{ post.categories | size }}{% endcapture %}
+<div class="overlay-container">
+    {% if post.image_url == nil %}
+        <img src="{{ site.asset }}images/blog-1.jpg" alt="">
+        <a class="overlay-link" href="{{ root_url }}{{ post.url }}"><i class="fa fa-link"></i></a>
+    {% else %}
+        <img src="{{ post.image_url }}" alt="">
+        <a class="overlay-link" href="{{ root_url }}{{ post.url }}"><i class="fa fa-link"></i></a>
+    {% endif %}
+</div>
+<header>
+    <h2><a href="{{ root_url }}{{ post.url }}">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a></h2>
+    <div class="post-info">
+        <time datetime="{{ post.date | datetime | date_to_xmlschema }}" pubdate class="post-info">
+            <i class="icon-calendar"></i>
+            {{ post.date | date: "<span class='day'>%d</span> <span class='month'>%b</span> <span class='year'>%Y</span>"}}
+        </time>
+        <span class="submitted"><i class="icon-user-1"></i> by 
+            {% if post.author %}
+                <span class="submitted">
+                    <i class="icon-user-1"></i> by <a href="#">{% include post/author.html %}</a>
+                </span>
+            {% endif %}
+        </span>
+        <span class="comments"><i class="icon-chat"></i> <a href="#"> comments</a></span>
+    </div>
+</header>
+
+<div class="blogpost-content" id="scroll-pane">
+    {{ post.content }}
+</div>
+<div class="separator"></div>
+<footer class="clearfix">
+    <div class="tags pull-left">
+        <i class="icon-tags"></i> 
+        {% unless category == '0' %}
+            {% assign cats = post.categories %}
+            {% for cat in cats %}
+                {% unless cat == 'house tree person projective drawings'  %}
+                <a href="/categories/{{ lang.lang }}/{{ cat }}/index.html">{{ cat }}</a>
+                {% else %}
+                <a href="/categories/{{ lang.lang }}/house-tree-person-projective-drawings/index.html">{{ cat }}</a>
+                {% endunless %}
+            {% endfor %}
+        {% endunless %}
+    </div>
+    <div class="link pull-right"><i class="icon-link"></i><a href="{{ post.url }}">Read More</a></div>
+</footer>
+
+

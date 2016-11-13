@@ -1,0 +1,15 @@
+<div class="block clearfix">
+    <h3 class="title">{{ lang.popular }} Tags</h3>
+    <div class="separator-2"></div>
+    <div class="tags-cloud">        
+        <ul class="nav nav-pills nav-stacked">
+            {% for item in site.categories %}     
+                {% unless item[0] == 'house tree person projective drawings'  %}
+                <li><a href="/categories/{{ lang.lang }}/{{ item[0] }}/">{{ item[0] | capitalize }} <div class="tag"><span>{{ item[1].size }}</span></div></a></li>
+                {% else %}
+                <li><a href="/categories/{{ lang.lang }}/house-tree-person-projective-drawings/">{{ item[0] | capitalize }} <div class="tag"><span>{{ item[1].size }}</span></div></a></li>
+                {% endunless %}
+            {% endfor %}         
+        </ul>        
+    </div>
+</div>

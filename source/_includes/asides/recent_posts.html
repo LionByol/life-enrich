@@ -1,0 +1,23 @@
+<div class="block clearfix">
+    <h3 class="title">{{ lang.recent_posts }}</h3>
+    <div class="separator-2"></div>
+      {% for post in site.posts limit: site.recent_posts %}
+          <div class="media margin-clear">
+              <div class="media-left">
+                  <div class="overlay-container">
+                      <img class="media-object" src="{{ site.asset }}/images/blog-thumb-1.jpg" alt="blog-thumb">
+                      <a href="{{ root_url }}{{ post.url }}" class="overlay-link small"><i class="fa fa-link"></i></a>
+                  </div>
+              </div>
+              <div class="media-body">
+                  <h6 class="media-heading"><a href="{{ root_url }}{{ post.url }}">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a></h6>
+                  <p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{% include post/date.html %}{{ time }}</p>
+              </div>
+              <hr>
+          </div>
+      {% endfor %}
+
+      <div class="text-right space-top">
+          <a href="/blog/archives/{{ page.lang }}/index.html" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>{{ lang.more }}</a>
+      </div>
+</div>

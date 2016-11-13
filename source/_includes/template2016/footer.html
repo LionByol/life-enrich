@@ -1,0 +1,104 @@
+{% include template2016/footer-top.html %}
+
+<!-- footer start (Add "dark" class to #footer in order to enable dark footer) -->
+<!-- ================ -->
+<footer id="footer" class="clearfix ">
+  <!-- .footer start -->
+  <!-- ================ -->
+  <div class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="footer-content">
+              <div class="logo-footer"><img id="logo-footer" src="{{ asset_url }}/images/logo_light_blue.png" alt=""></div>
+              <p>We are Life Enrich.
+                    {% if page.lang == 'zhtw' %}
+                        <a href="/online-learning">{{ lang.learn_more }}<i class="fa fa-long-arrow-right pl-5"></i></a>
+                    {% else %}
+                        <a href="/{{ page.lang }}/online-learning">{{ lang.learn_more }}<i class="fa fa-long-arrow-right pl-5"></i></a>
+                    {% endif %}
+              </p>
+              <div class="separator-2"></div>
+              <nav>
+                <ul class="nav nav-pills nav-stacked">
+                    {% if page.lang == 'zhtw' %}
+                        <li><a href="/legal/copyright.html">{{ lang.legal_copyright }}</a></li>
+                        <li><a href="/legal/disclaimer.html">{{ lang.legal_disclaimer }}</a></li>
+                        <li><a href="/legal/privacy.html">{{ lang.legal_privacy }}</a></li>
+                        <li><a href="/about/index.html">{{ lang.about_us }}</a></li>
+                    {% else %}
+                        <li><a href="/{{ page.lang }}/legal/copyright.html">{{ lang.legal_copyright }}</a></li>
+                        <li><a href="/{{ page.lang }}/legal/disclaimer.html">{{ lang.legal_disclaimer }}</a></li>
+                        <li><a href="/{{ page.lang }}/legal/privacy.html">{{ lang.legal_privacy }}</a></li>
+                        <li><a href="/{{ page.lang }}/about/index.html">{{ lang.about_us }}</a></li>
+                    {% endif %}
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="footer-content">
+              <h2 class="title">{{ lang.recent_posts }}</h2>
+              <div class="separator-2"></div>
+                {% for post in site.posts limit: site.recent_posts %}
+                    <div class="media margin-clear">
+                        <div class="media-left">
+                            <div class="overlay-container">
+                                <img class="media-object" src="{{ asset_url }}/images/blog-thumb-1.jpg" alt="blog-thumb">
+                                <a href="{{ root_url }}{{ post.url }}" class="overlay-link small"><i class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h6 class="media-heading"><a href="{{ root_url }}{{ post.url }}">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a></h6>
+                            <p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{% include post/date.html %}{{ time }}</p>
+                        </div>
+                        <hr>
+                    </div>
+                {% endfor %}
+
+                <div class="text-right space-top">
+                    <a href="/blog/archives/{{ page.lang }}/index.html" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>{{ lang.more }}</a>
+                </div>
+	    </div>
+	  </div>
+	  <div class="col-md-3">
+	    <div class="footer-content">
+	      <h2 class="title">Find Us</h2>
+	      <div class="separator-2"></div>
+	      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium odio voluptatem necessitatibus illo vel dolorum soluta.</p>
+	      <ul class="social-links circle animated-effect-1">
+		<li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+		<li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+		<li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+		<li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+	      </ul>
+	      <div class="separator-2"></div>
+	      <ul class="list-icons">
+		<li><i class="fa fa-map-marker pr-10 text-default"></i> {{ lang.site_address }}</li>
+		<li><i class="fa fa-phone pr-10 text-default"></i> {{ site.phone }}</li>
+		<li><a href="mailto:{{ site.email }}"><i class="fa fa-envelope-o pr-10"></i>{{ site.email }}</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </div>
+  <!-- .footer end -->
+
+  <!-- .subfooter start -->
+  <!-- ================ -->
+  <div class="subfooter">
+    <div class="container">
+      <div class="subfooter-inner">
+	<div class="row">
+	  <div class="col-md-12">
+	    <p class="text-center">Copyright © 2015 {{ site.author }}. All Rights Reserved.</p>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </div>
+  <!-- .subfooter end -->
+</footer>

@@ -1,0 +1,29 @@
+<div class="block clearfix">
+    <h3 class="title">{{ lang.nlp_menu }}</h3>
+    <div class="separator-2"></div>
+    <nav>
+        {% if page.lang == 'zhtw' %}
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="/about/index.html">{{ lang.about_us }}</a></li>
+                <li><a href="/online-learning/index.html">{{ lang.online_learn }}</a></li>
+                <li><a href="/course/index.html">{{ lang.course }}</a></li>
+                <li><a href="/trainers/index.html">{{ lang.trainers }}</a></li>
+                <li><a href="/services/index.html">{{ lang.services }}</a></li>
+                <li><a href="/testimonials/index.html">{{ lang.testimonials }}</a></li>
+                <li><a href="/blog/archives/{{ page.lang }}/index.html">NLP Blog</a></li>
+                <li><a href="/contact/index.html">{{ lang.contactus }}</a></li>
+            </ul>
+        {% else %}
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="/{{ page.lang }}/about/index.html">{{ lang.about_us }}</a></li>
+                <li><a href="/{{ page.lang }}/online-learning/index.html">{{ lang.online_learn }}</a></li>
+                <li><a href="/{{ page.lang }}/course/index.html">{{ lang.course }}</a></li>
+                <li><a href="/{{ page.lang }}/trainers/index.html">{{ lang.trainers }}</a></li>
+                <li><a href="/{{ page.lang }}/services/index.html">{{ lang.services }}</a></li>
+                <li><a href="/{{ page.lang }}/testimonials/index.html">{{ lang.testimonials }}</a></li>
+                <li><a href="/blog/archives/{{ page.lang }}/index.html">NLP Blog</a></li>
+                <li><a href="/{{ page.lang }}/contact/index.html">{{ lang.contactus }}</a></li>
+            </ul>
+        {% endif %}
+    </nav>
+</div>	

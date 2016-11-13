@@ -1,0 +1,14 @@
+<!-- breadcrumb start -->
+<div class="breadcrumb-container">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li>
+                {% if page.lang == 'zhtw' %}<i class="fa fa-home pr-10"></i><a class="link-dark" href="/">{{ lang.homepage }}</a>
+                {% else %}<i class="fa fa-home pr-10"></i><a class="link-dark" href="/{{ page.lang }}/">{{ lang.homepage }}</a>
+                {% endif %}
+            </li>
+            <li class="active">{{ page.title }}</li>
+        </ol>
+    </div>
+</div>
+<!-- breadcrumb end -->

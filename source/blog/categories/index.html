@@ -1,0 +1,75 @@
+---
+layout: page
+footer: false
+lang: en
+translation_id: 120563444f085847453444f5f934d4d1
+---
+
+<div id="blog-archives" class="category">
+    {% for post in site.categories[page.category] %}
+        {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+        {% unless year == this_year %}
+            {% assign year = this_year %}
+            <h2>{{ year }}</h2>
+        {% endunless %}
+        <article>
+            {% include archive_post.html %}
+        </article>
+    {% endfor %}
+</div>
+<div class="main-container">
+    <div class="container">
+        <div class="row">
+            <div class="main col-md-8">
+                {% assign flag = 0 %}
+                {% assign tmp = 0 %}
+                <!-- timeline grid start -->
+                <!-- ================ -->
+                <div class="timeline clearfix">
+                    {% for post in site.categories[page.category] %}
+                        {% if post.lang == 'en' %}
+                            {% capture this_year %}{{ post.date | date: "%b %Y" }}{% endcapture %}
+                            {% if this_year != tmp %}
+                                <div class="timeline-date-label clearfix">{{ this_year }}</div>
+                                {% assign tmp = this_year %}
+                            {% endif %}
+                        
+                            <!-- timeline grid item start -->
+                            {% if flag == 0 %}
+                                <div class="timeline-item">
+                                {% assign flag = 1 %}
+                            {% else %}
+                                <div class="timeline-item pull-right">
+                                {% assign flag = 0 %}
+                            {% endif %}
+                                <!-- blogpost start -->
+                                <article class="blogpost shadow light-gray-bg bordered">
+                                    {% include archive_post.html %}
+                                </article>
+                                <!-- blogpost end -->
+                            </div>
+                            <!-- timeline grid item end -->
+                        {% endif %}
+                        
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- sidebar start -->
+            <!-- ================ -->
+            <div class="col-md-4 col-lg-3 col-lg-offset-1"> 
+                {% unless page.sidebar == false %}
+                <div class="sidebar">
+                    {% if site.blog_index_asides.size %}
+                        {% include_array blog_index_asides %}
+                    {% else %}
+                        {% include_array blog_index_asides %}
+                    {% endif %}
+                </div>
+                {% endunless %}
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,18 @@
+[submodule ".theme/cyan"]
+	path = .theme/cyan
+	url = git://github.com/octothemes/cyan.git
+[submodule ".themescyan"]
+	path = .themescyan
+	url = git://github.com/octothemes/cyan.git
+[submodule ".themes/cyan"]
+	path = .themes/cyan
+	url = git://github.com/octothemes/cyan.git
+[submodule ".themes/blanket"]
+	path = .themes/blanket
+	url = git://github.com/octothemes/blanket.git
+[submodule ".themes/murky-mussels"]
+	path = .themes/murky-mussels
+	url = git://github.com/octothemes/murky-mussels.git
+[submodule ".themes/venice"]
+	path = .themes/venice
+	url = git://github.com/octothemes/venice.git
